@@ -34,7 +34,7 @@ Path traversal protection, WAL journal mode, foreign key enforcement.
 ### 安装 / Installation
 
 ```bash
-git clone https://github.com/shz6626/sqlite-mcp.git
+git clone https://github.com/Leesz626/sqlite-mcp.git
 cd sqlite-mcp-server
 uv sync
 ```
