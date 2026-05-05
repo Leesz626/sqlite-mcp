@@ -75,6 +75,32 @@ The server communicates via stdio (MCP protocol). Connect it to any MCP-compatib
 
 ---
 
+## Claude Desktop 配置 / Claude Desktop Configuration
+
+在 Claude Desktop 的 `claude_desktop_config.json` 中添加 / Add to `claude_desktop_config.json`：
+
+**macOS:** `~/Library/Application Support/Claude/claude_desktop_config.json`
+**Windows:** `%APPDATA%\Claude\claude_desktop_config.json`
+
+```json
+{
+  "mcpServers": {
+    "sqlite": {
+      "command": "uv",
+      "args": ["run", "--directory", "/path/to/sqlite-mcp-server", "sqlite-mcp-server"],
+      "env": {
+        "SQLITE_DB_PATH": "database.db"
+      }
+    }
+  }
+}
+```
+
+> 路径 `/path/to/sqlite-mcp-server` 替换为实际项目路径。
+> Replace `/path/to/sqlite-mcp-server` with the actual project path.
+
+---
+
 ## 工具参数参考 / Tools Reference
 
 所有工具支持可选的 `db_path` 参数（默认 `database.db`），路径相对于 AI 客户端的工作目录。
