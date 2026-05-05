@@ -39,18 +39,6 @@ cd sqlite-mcp-server
 uv sync
 ```
 
-### 运行 / Run
-
-```bash
-uv run sqlite-mcp-server --db mydatabase.db
-```
-
-或通过环境变量指定 / Or via environment variable：
-
-```bash
-SQLITE_DB_PATH=mydatabase.db uv run sqlite-mcp-server
-```
-
 服务器通过 stdio（MCP 协议）通信，可接入任何兼容 MCP 的 AI 客户端。
 
 The server communicates via stdio (MCP protocol). Connect it to any MCP-compatible AI client.
@@ -58,8 +46,6 @@ The server communicates via stdio (MCP protocol). Connect it to any MCP-compatib
 ---
 
 ## OpenCode 配置 / OpenCode Configuration
-
-在 `~/.config/opencode/opencode.json` 中添加 / Add to `~/.config/opencode/opencode.json`：
 
 ```json
 {
@@ -77,29 +63,18 @@ The server communicates via stdio (MCP protocol). Connect it to any MCP-compatib
 
 ## Claude CLI 配置 / Claude Code Configuration
 
-在项目中添加 `.mcp.json` / Add `.mcp.json` to your project：
 
 ```json
 {
   "mcpServers": {
     "sqlite": {
       "command": "uv",
-      "args": ["run", "--directory", "/path/to/sqlite-mcp-server", "sqlite-mcp-server"],
-      "env": {
-        "SQLITE_DB_PATH": "database.db"
-      }
+      "args": ["run", "--directory", "path/to/sqlite-mcp-server", "sqlite-mcp-server"]
     }
   }
 }
 ```
 
-或通过命令行注册（全局） / Or register via CLI (global)：
-
-```bash
-claude mcp add sqlite -- uv run --directory /path/to/sqlite-mcp-server sqlite-mcp-server
-```
-
-> 这会写入 `~/.claude.json` / This writes to `~/.claude.json`。
 
 ---
 
