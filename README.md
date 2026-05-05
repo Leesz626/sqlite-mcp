@@ -1,4 +1,4 @@
-# sqlite-mcp-server
+# sqlite-mcp
 
 一个功能完整的 SQLite MCP (Model Context Protocol) 服务器，供 AI 智能体使用。支持查询、执行、DDL、导入导出、事务等。
 
@@ -35,7 +35,7 @@ Path traversal protection, WAL journal mode, foreign key enforcement.
 
 ```bash
 git clone https://github.com/Leesz626/sqlite-mcp.git
-cd sqlite-mcp-server
+cd sqlite-mcp
 uv sync
 ```
 
@@ -52,7 +52,7 @@ The server communicates via stdio (MCP protocol). Connect it to any MCP-compatib
   "mcp": {
     "sqlite": {
       "type": "local",
-      "command": ["uv", "run", "--directory", "/path/to/sqlite-mcp-server", "sqlite-mcp-server"],
+      "command": ["uv", "run", "--directory", "/path/to/sqlite-mcp", "sqlite-mcp-server"],
       "enabled": true
     }
   }
@@ -69,7 +69,7 @@ The server communicates via stdio (MCP protocol). Connect it to any MCP-compatib
   "mcpServers": {
     "sqlite": {
       "command": "uv",
-      "args": ["run", "--directory", "path/to/sqlite-mcp-server", "sqlite-mcp-server"]
+      "args": ["run", "--directory", "path/to/sqlite-mcp", "sqlite-mcp-server"]
     }
   }
 }
