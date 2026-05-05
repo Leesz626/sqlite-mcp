@@ -75,12 +75,9 @@ The server communicates via stdio (MCP protocol). Connect it to any MCP-compatib
 
 ---
 
-## Claude Desktop 配置 / Claude Desktop Configuration
+## Claude CLI 配置 / Claude Code Configuration
 
-在 Claude Desktop 的 `claude_desktop_config.json` 中添加 / Add to `claude_desktop_config.json`：
-
-**macOS:** `~/Library/Application Support/Claude/claude_desktop_config.json`
-**Windows:** `%APPDATA%\Claude\claude_desktop_config.json`
+在项目中添加 `.mcp.json` / Add `.mcp.json` to your project：
 
 ```json
 {
@@ -96,8 +93,13 @@ The server communicates via stdio (MCP protocol). Connect it to any MCP-compatib
 }
 ```
 
-> 路径 `/path/to/sqlite-mcp-server` 替换为实际项目路径。
-> Replace `/path/to/sqlite-mcp-server` with the actual project path.
+或通过命令行注册（全局） / Or register via CLI (global)：
+
+```bash
+claude mcp add sqlite -- uv run --directory /path/to/sqlite-mcp-server sqlite-mcp-server
+```
+
+> 这会写入 `~/.claude.json` / This writes to `~/.claude.json`。
 
 ---
 
